@@ -8,6 +8,7 @@ public class EchoPutHandler extends CustomHttpHandler {
   public void handle(HttpExchange he) throws IOException {
     increment();
     printPageCounter("EchoPutHandler");
+    RESTHttpServer.refreshCounterMap(this.getClass(), getPageCounter());
 	String response = "echoPut: Not Implemented\n";
 	he.sendResponseHeaders(200, response.length());
 	OutputStream os = he.getResponseBody();

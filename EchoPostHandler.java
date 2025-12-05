@@ -19,6 +19,7 @@ public class EchoPostHandler extends CustomHttpHandler {
         // parse request
         increment();
         printPageCounter("");
+        RESTHttpServer.refreshCounterMap(this.getClass(), getPageCounter());
         Map<String, Object> parameters = new HashMap<String, Object>();
         InputStreamReader isr = new InputStreamReader(he.getRequestBody(), "utf-8");
         BufferedReader br = new BufferedReader(isr);

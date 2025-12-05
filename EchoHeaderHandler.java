@@ -12,6 +12,7 @@ public class EchoHeaderHandler extends CustomHttpHandler {
     public void handle(HttpExchange he) throws IOException {
         increment();
         printPageCounter("EchoHeaderHandler");
+        RESTHttpServer.refreshCounterMap(this.getClass(), getPageCounter());
         Headers headers = he.getRequestHeaders();
         Set<Map.Entry<String, List<String>>> entries = headers.entrySet();
         String response = "";

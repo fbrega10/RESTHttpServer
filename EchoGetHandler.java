@@ -20,6 +20,7 @@ public class EchoGetHandler extends CustomHttpHandler {
   public void handle(HttpExchange he) throws IOException {
     increment();
     printPageCounter("EchoGetHandler");
+    RESTHttpServer.refreshCounterMap(this.getClass(), getPageCounter());
 	Map<String, Object> parameters = new HashMap<String, Object>();
 	URI requestedUri = he.getRequestURI();
 	String query = requestedUri.getRawQuery();

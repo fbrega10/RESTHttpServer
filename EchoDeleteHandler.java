@@ -20,6 +20,7 @@ public class EchoDeleteHandler extends CustomHttpHandler {
     public void handle(HttpExchange he) throws IOException {
         increment();
         printPageCounter("EchoDeleteHandler");
+        RESTHttpServer.refreshCounterMap(this.getClass(), getPageCounter());
         String requestMethod = he.getRequestMethod();
         increment();
         String response = "EchoDelete: not implemented\n";
